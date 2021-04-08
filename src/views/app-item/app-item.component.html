@@ -1,0 +1,48 @@
+<div class="app-item-page page">
+    <div class="row">
+        <div class="col-12">
+            <h1>{{ currentApp.title }}</h1>
+        </div>
+        <div class="col" :class="{'col-9':currentAppSimilar.length}">
+            <div class="card-container big">
+                <a class="blank-anchor" :href="currentApp.market_url" target="_blank"></a>
+                <div class="profile-img">
+                    <img :src="currentApp.icon" :alt="currentApp.title"/>
+                    <div class="img-background"></div>
+                </div>
+                <div class="card-title">
+                    {{ currentApp.title }}
+                </div>
+                <carousel :arrows="true" :dots="true" :slidesToShow="2">
+                    <div v-for="(img, idx) in currentApp.screenshots" :key="idx">
+                        <img :src="img" width="200" class="d-block" :alt="currentApp.title + 'screenshot' + idx"/>
+                    </div>
+                </carousel>
+                <div class="description">
+                    <p class="section-title">Description</p>
+                    {{ currentApp.description }}
+                </div>
+                <div class="description">
+                    <p class="section-title">What's new</p>
+                    {{ currentApp.what_is_new }}
+                </div>
+                <footer>
+                    <div class="projects">
+                        <p>Downloads</p>
+                        <p>{{ currentApp.downloads }}</p>
+                    </div>
+                </footer>
+
+            </div>
+        </div>
+        <div class="col-3" v-if="currentAppSimilar && currentAppSimilar.length">
+            <div class="row">
+                <div v-for="(appItem, idx) in currentAppSimilar" :key="idx"
+                     class="col">
+                    <!--                    <app-card :app-item="appItem" @on-item-clicked="goToAppItemPage"></app-card>-->
+                    <app-card :app-item="appItem"></app-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

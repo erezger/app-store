@@ -1,0 +1,14 @@
+<div class="home-page page">
+    <div class="row">
+        <div class="col">
+            <h1>App Store Board</h1>
+        </div>
+    </div>
+    <div v-if="appStoreList && appStoreList.length"
+         class="row">
+        <div v-for="(appItem, idx) in appStoreList" :key="idx"
+             class="col-auto">
+            <app-card :app-item="appItem" @on-item-clicked="goToAppItemPage"></app-card>
+        </div>
+    </div>
+</div>
