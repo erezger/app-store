@@ -1,7 +1,7 @@
-# Erez-Gershon-19-01-2021-fullStack
+# Erez-Gershon-App-Store
 
 ```
-Erez Portfolio
+App Store webapp
 ```
 
 ## Project setup
